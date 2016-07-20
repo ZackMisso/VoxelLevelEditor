@@ -1,0 +1,15 @@
+#version 410 core
+
+layout(triangles, equal_spacing, ccw) in;
+uniform mat4 ModelViewProjectionMatrix;
+out gl_PerVertex{
+vec4 gl_Position;
+};
+
+void main()
+{
+ vec4 position =    gl_TessCoord.x * gl_in[0].gl_Position +
+                    gl_TessCoord.y * gl_in[1].gl_Position +
+                    gl_TessCoord.z * gl_in[2].gl_Position;
+ gl_Position = ModelViewProjectionMatrix * position;
+}
