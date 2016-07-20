@@ -12,6 +12,9 @@ PROD= VoxelEditor
 SRCS= $(shell ls *.cpp)
 SRCS+= $(shell ls views/*.cpp)
 SRCS+= $(shell ls shaders/*.cpp)
+SRCS+= $(shell ls scene/*.cpp)
+SRCS+= $(shell ls fileio/*.cpp)
+SRCS+= $(shell ls data/*.cpp)
 
 OBJS= $(patsubst %.cpp, %.o, $(SRCS))
 
@@ -27,4 +30,7 @@ clean:
 	rm -f $(PROD)
 	rm -f *.o
 	rm -f views/*.o
-	rm -f shaders/*.cpp
+	rm -f shaders/*.o
+	rm -f scene/*.o
+	rm -f fileio/*.o
+	rm -f data/*.o
